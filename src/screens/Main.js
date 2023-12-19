@@ -10,8 +10,8 @@ import allActions from '../actions';
 import Login from './login';
 import Register from './register';
 import Dashboard from './dashboard';
-// import Notification from 'PPB_App/src/screens/notifications';
-// import ViewMessage from 'PPB_App/src/screens/notifications/view';
+import Notification from './notifications';
+import ViewMessage from './notifications/view';
 
 // import Profile from 'PPB_App/src/screens/profile';
 // import Password from 'PPB_App/src/screens/password';
@@ -62,11 +62,10 @@ class App extends Component {
               component={Login}
               options={{ swipeEnabled: false }}
             />
-            <Drawer.Screen name={'Dashboard'} component={Dashboard} />
-            {/* 
+            <Drawer.Screen name={'Dashboard'} component={Dashboard} />          
             <Drawer.Screen name={'Notification'} component={Notification} />
-            <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
-            <Drawer.Screen name={'Profile'} component={Profile} />
+             <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
+            {/*  <Drawer.Screen name={'Profile'} component={Profile} />
             <Drawer.Screen name={'Password'} component={Password} />
             <Drawer.Screen name={'Forms'} component={Forms} />
             <Drawer.Screen name={'FormList'} component={FormList} />
