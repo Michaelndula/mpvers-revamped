@@ -7,8 +7,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 // import SideBar from 'PPB_App/src/screens/side_menu';
 import Intro from './intro';
 import allActions from '../actions';
-// import Login from 'PPB_App/src/screens/login';
-// import Register from 'PPB_App/src/screens/register';
+import Login from './login';
+import Register from './register';
 // import Notification from 'PPB_App/src/screens/notifications';
 // import ViewMessage from 'PPB_App/src/screens/notifications/view';
 // import Dashboard from 'PPB_App/src/screens/dashboard';
@@ -51,7 +51,7 @@ class App extends Component {
               component={Intro}
               options={{swipeEnabled: false}}
             />
-            {/* <Drawer.Screen
+            <Drawer.Screen
               name={'Register'}
               component={Register}
               options={{swipeEnabled: false}}
@@ -60,7 +60,7 @@ class App extends Component {
               name={'Login'}
               component={Login}
               options={{swipeEnabled: false}}
-            /> */}
+            />
             {/* <Drawer.Screen name={'Dashboard'} component={Dashboard} />
             <Drawer.Screen name={'Notification'} component={Notification} />
             <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />

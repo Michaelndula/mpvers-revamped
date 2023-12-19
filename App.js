@@ -18,7 +18,7 @@ import {Provider} from 'react-redux';
 import { accent, primary } from './src/utilities/colors';
 import rootReducer from './src/reducers';
 import { fetchLocalStorage } from './src/storage/db';
-import Main from './src/sreens/Main';
+import Main from './src/screens/Main';
 
 const store = createStore(rootReducer);
 
