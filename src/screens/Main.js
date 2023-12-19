@@ -12,9 +12,8 @@ import Register from './register';
 import Dashboard from './dashboard';
 import Notification from './notifications';
 import ViewMessage from './notifications/view';
-
-// import Profile from 'PPB_App/src/screens/profile';
-// import Password from 'PPB_App/src/screens/password';
+import Profile from './profile';
+import Password from './password';
 // import Forms from 'PPB_App/src/screens/forms';
 // import FormList from 'PPB_App/src/screens/forms';
 // import FormAdd from 'PPB_App/src/screens/forms/add';
@@ -62,12 +61,12 @@ class App extends Component {
               component={Login}
               options={{ swipeEnabled: false }}
             />
-            <Drawer.Screen name={'Dashboard'} component={Dashboard} />          
+            <Drawer.Screen name={'Dashboard'} component={Dashboard} />
             <Drawer.Screen name={'Notification'} component={Notification} />
-             <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
-            {/*  <Drawer.Screen name={'Profile'} component={Profile} />
-            <Drawer.Screen name={'Password'} component={Password} />
-            <Drawer.Screen name={'Forms'} component={Forms} />
+            <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
+            <Drawer.Screen name={'Profile'} component={Profile} />
+           <Drawer.Screen name={'Password'} component={Password} />
+             {/*  <Drawer.Screen name={'Forms'} component={Forms} />
             <Drawer.Screen name={'FormList'} component={FormList} />
             <Drawer.Screen name={'FormAdd'} component={FormAdd} />
             <Drawer.Screen name={'FormEdit'} component={FormEdit} />
