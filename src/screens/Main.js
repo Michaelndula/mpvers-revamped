@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-  
-// import SideBar from 'PPB_App/src/screens/side_menu';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import SideBar from './side_menu';
 import Intro from './intro';
 import allActions from '../actions';
 import Login from './login';
 import Register from './register';
+import Dashboard from './dashboard';
 // import Notification from 'PPB_App/src/screens/notifications';
 // import ViewMessage from 'PPB_App/src/screens/notifications/view';
-// import Dashboard from 'PPB_App/src/screens/dashboard';
+
 // import Profile from 'PPB_App/src/screens/profile';
 // import Password from 'PPB_App/src/screens/password';
 // import Forms from 'PPB_App/src/screens/forms';
@@ -39,29 +40,30 @@ class App extends Component {
         <NavigationContainer>
           <Drawer.Navigator
             initialRouteName={this.props.user !== null ? 'Dashboard' : 'Intro'}
-            // drawerPosition={'left'}
-            // statusBarAnimation={'slide'}
-            // drawerType={'slide'}
-            // drawerContent={(p) => {
-            //   return <SideBar {...p} />;
-            // }}
-            screenOptions={{headerShown: false}}>
+            drawerPosition={'left'}
+            statusBarAnimation={'slide'}
+            drawerType={'slide'}
+            drawerContent={(p) => {
+              return <SideBar {...p} />;
+            }}
+            screenOptions={{ headerShown: false }}>
             <Drawer.Screen
               name={'Intro'}
               component={Intro}
-              options={{swipeEnabled: false}}
+              options={{ swipeEnabled: false }}
             />
             <Drawer.Screen
               name={'Register'}
               component={Register}
-              options={{swipeEnabled: false}}
+              options={{ swipeEnabled: false }}
             />
             <Drawer.Screen
               name={'Login'}
               component={Login}
-              options={{swipeEnabled: false}}
+              options={{ swipeEnabled: false }}
             />
-            {/* <Drawer.Screen name={'Dashboard'} component={Dashboard} />
+            <Drawer.Screen name={'Dashboard'} component={Dashboard} />
+            {/* 
             <Drawer.Screen name={'Notification'} component={Notification} />
             <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
             <Drawer.Screen name={'Profile'} component={Profile} />
