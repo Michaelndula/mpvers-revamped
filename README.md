@@ -1,79 +1,275 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+ 
 
-# Getting Started
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="React Native is released under the MIT license." />
+  </a>
+</p>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Contents
 
-## Step 1: Start the Metro Server
+- [Brief](#-brief-on-mpvers)
+- [Components](#components)
+- [Requirements](#-requirements)
+- [Getting Started](#-getting-started)
+- [How it Works](#-how-it-works)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## 📚 Brief on mPVERs
+
+### SUSPECTED ADVERSE DRUG REACTION
+
+An Adverse Drug Reaction (ADR) is defined as a reaction that is noxious and unintended, and occurs at doses normally used in man for prophylaxis, diagnosis or treatment of a disease, or for modification of physiological function.
+
+### POOR-QUALITY MEDICAL PRODUCTS AND HEALTH TECHNOLOGIES
+
+All healthcare professionals (clinicians, dentists, nurses, pharmacists, physiotherapists, community health workers etc) are encouraged to report. Patients (or their next of kin) may also report.
+
+### ADVERSE EVENT FOLLOWING IMMUNIZATION
+
+An adverse event following immunization (AEFI) is defined as any unfavorable medical occurrence which follows immunization and which may or may not be caused by the usage of the vaccine. The adverse event may be any unfavorable or unintended sign, abnormal laboratory finding, symptom or disease.
+
+### MEDICATION ERROR REPORTING FORM test
+
+Submission of a report does not constitute an admission that medical personnel or manufacturer or the product caused or contributed to the event. Patient’s identity is held in strict confidence and program staff is not is not expected to and will not disclose reporter’s identity in response to any public request.
+
+### MEDICAL DEVICES INCIDENT REPORTING
+
+The Pharmacy and Poisons Board investigates all incidents reported to us in order to identify any faults with medical devices and to prevent similar incidents happening again. The Board may contact the manufacturer of this medical device to request they carry out an investigation.
+
+### ADVERSE TRANSFUSION REACTION
+
+Information supplied by you will contribute to the improvement of drug safety and therapy in Kenya.
+
+
+## 📋 Requirements
+
+PPB App targets iOS 9.0 and Android 4.1 (API 16) or newer. You may use Windows, macOS, or Linux as your development operating system, though building and running iOS apps is limited to macOS.
+
+You will be required to have the Android Keystore and the relevant Certificates and Profiles for iOS as they are not included in the repo.
+
+Read on how to build a release apk for [Android](https://facebook.github.io/react-native/docs/signed-apk-android) and [iOS](https://medium.com/@tunvirrahmantusher/create-ipa-and-apk-from-react-native-72fe53c6a8db) and publishing to [App Store](https://medium.com/@the_manifest/how-to-publish-your-app-on-apples-app-store-in-2018-f76f22a5c33a)
+
+## Components
+
+- assets (Images)
+- src (app files)
+  - actions
+    - user
+  - form_data (form data in json)
+    - aefi
+    - device
+    - medication
+    - padr
+    - pqmp
+    - sadr
+    - transfusion
+  - form_data_followup (form data in json)
+    - aefi
+    - device
+    - medication
+    - sadr
+    - transfusion
+  - reducers
+    - currentUser
+  - screens
+    - dashboard
+    - forms
+      - add
+        - validations
+      - followup
+        - validations
+      - view
+        - pdf (not in use)
+    - intro
+    - login
+    - notifications
+      - view
+    - password
+    - profile
+    - register
+    - reports
+    - sidemenu
+  - services
+    - network
+  - storage
+    - db
+  - ui
+    - components
+      - emptylist
+      - icon
+      - prompt
+      - questions
+      - questionview
+    - container
+  - utilities
+    - colors
+    - validation
+
+## 📜 Getting Started
+
+1. Download and configure [Node.js](https://nodejs.org/en/download/).
+2. Go to the desired folder and clone the project using git.
+
+If Node.js is installed globally, run
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+git clone 
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+Run yarn to install the packages
 
 ```bash
-# using npm
-npm run android
+yarn install
+```
 
-# OR using Yarn
+or using npm
+
+```bash
+npm install
+```
+
+There are two options after that, you can run the application for Android or for iOS
+For Android run:
+
+```bash
+npm run android
+```
+
+or if using yarn
+
+```bash
 yarn android
 ```
 
-### For iOS
+For iOS(Mac required) run:
 
 ```bash
-# using npm
 npm run ios
+```
 
-# OR using Yarn
+or if using yarn
+
+```bash
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+For ios you might need to install pods before running.
+navigate to ios folder in your project root. The run
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+pod install
+```
 
-## Step 3: Modifying your App
+Review the section of scripts under packages.json to see other scripts that can be run
 
-Now that you have successfully run the app, let's modify it.
+## 🎉 How it Works
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## 📄 Errors
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+If you encounter a Duplicate Resources error when building the release version for Android:
 
-## Congratulations! :tada:
+Start Android Studio, click on build and rebuild app. There will be packages that require refactoring, ensure the packages have been refactored.
 
-You've successfully run and modified your React Native App. :partying_face:
+Edit the /node_modules/react-native/react.gradle file
+and add the doLast right after the doFirst block, manually.
 
-### Now what?
+```bash
+doFirst { ... }
+doLast {
+    def moveFunc = { resSuffix ->
+        File originalDir = file("$buildDir/generated/res/react/release/${resSuffix}");
+        if (originalDir.exists()) {
+            File destDir = file("$buildDir/../src/main/res/${resSuffix}");
+            ant.move(file: originalDir, tofile: destDir);
+        }
+    }
+    moveFunc.curry("drawable-ldpi").call()
+    moveFunc.curry("drawable-mdpi").call()
+    moveFunc.curry("drawable-hdpi").call()
+    moveFunc.curry("drawable-xhdpi").call()
+    moveFunc.curry("drawable-xxhdpi").call()
+    moveFunc.curry("drawable-xxxhdpi").call()
+    moveFunc.curry("raw").call()
+}
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+spawnSync ./gradlew EACCES error
 
-# Troubleshooting
+Run chmod 755 android/gradlew
+Run ./gradlew clean
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+if the you get and error on trying to clean then this is because the gradlew file has Windows file-endings. You can install dos2unix then  use dos2unix to convert the line-endings from CRLF Windows CarriageReturn + LineFeed to LF Linux LineFeed only:
 
-# Learn More
+``bash
+  dos2unix ./gradlew
+``
+Rerun ./gradlew clean for a test
 
-To learn more about React Native, take a look at the following resources:
+Remove and reinstall react-native-firebase/app
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+error: failed linking references.
+
+Check package and change gradle values to match (compileSdkVersion should be at least 30)
+
+```bash
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+```
+You can also open your project in the android studio and then delete all drawable-xxx folders and raw folder under resources.
+
+Image cannot show image in iOS 14
+On react-native/Libraries/Image/RCTUIImageViewAnimated.m
+
+Look for
+  ```bash
+
+  - (void)displayLayer:(CALayer \*)layer
+    {
+    if (\_currentFrame) {
+      layer.contentsScale = self.animatedImageScale;
+      layer.contents = (\_\_bridge id)\_currentFrame.CGImage;
+      }
+    }
+  ```
+then replace it with
+
+```bash
+
+- (void)displayLayer:(CALayer *)layer
+{
+ if (_currentFrame) {
+  layer.contentsScale = self.animatedImageScale;
+  layer.contents = (__bridge id)_currentFrame.CGImage;
+} else {
+  [super displayLayer:layer];
+}
+}
+```
+
+[!] CocoaPods could not find compatible versions for pod "ReactCommon/callinvoker":
+
+```bash
+pod 'ReactCommon/callinvoker', :path => "../node_modules/react-native/ReactCommon"
+
+to
+
+pod 'React-callinvoker', :path => "../node_modules/react-native/ReactCommon/callinvoker"
+```
+
+Can't compile initial project for iOS : unknown type name 'bn_ulong' react native
+Add to the pod file
+```bash
+pod 'OpenSSL-Universal', '~>1.0.2.20'
+```
