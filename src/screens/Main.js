@@ -20,8 +20,8 @@ import Password from './password';
 // import FormView from 'PPB_App/src/screens/forms/view';
 // import FormEdit from 'PPB_App/src/screens/forms/followup';
 // import FormPDF from 'PPB_App/src/screens/forms/view/pdf';
-// import Reports from 'PPB_App/src/screens/reports';
-// import ViewReports from 'PPB_App/src/screens/reports/view';
+import Reports from './reports';
+import ViewReports from './reports/view';
 
 const Drawer = createDrawerNavigator();
 
@@ -65,14 +65,15 @@ class App extends Component {
             <Drawer.Screen name={'Notification'} component={Notification} />
             <Drawer.Screen name={'ViewMessage'} component={ViewMessage} />
             <Drawer.Screen name={'Profile'} component={Profile} />
-           <Drawer.Screen name={'Password'} component={Password} />
-             {/*  <Drawer.Screen name={'Forms'} component={Forms} />
+            <Drawer.Screen name={'Password'} component={Password} />
+            <Drawer.Screen name={'Reports'} component={Reports} />
+            <Drawer.Screen name={'ViewReports'} component={ViewReports} />
+            {/*  <Drawer.Screen name={'Forms'} component={Forms} />
             <Drawer.Screen name={'FormList'} component={FormList} />
             <Drawer.Screen name={'FormAdd'} component={FormAdd} />
             <Drawer.Screen name={'FormEdit'} component={FormEdit} />
             <Drawer.Screen name={'FormView'} component={FormView} />
-            <Drawer.Screen name={'Reports'} component={Reports} />
-            <Drawer.Screen name={'ViewReports'} component={ViewReports} />
+          
             <Drawer.Screen
               name={'FormPDF'}
               component={FormPDF}
