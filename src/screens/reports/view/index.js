@@ -15,7 +15,7 @@ import {ActivityIndicator} from 'react-native-paper';
 import {BarChart, PieChart} from 'react-native-chart-kit';
 
 import Header from '../../../ui/header';
-import Container from '../../../ui/components/component';
+import Container from '../../../ui/components/container';
 
 import {BASE_URL} from '../../../services/network';
 import {withNetwork} from '../../../services/network';

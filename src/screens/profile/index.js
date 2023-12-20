@@ -15,7 +15,7 @@ import DropDown from 'react-native-paper-dropdown';
 import {moderateScale} from 'react-native-size-matters';
 import {List, TextInput, Button} from 'react-native-paper';
 import allActions from '../../actions';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 import Header from '../../ui/header';
 import {withNetwork, get_call, post_call} from '../../services/network';
 import {accent, green} from '../../utilities/colors';

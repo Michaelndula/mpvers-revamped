@@ -17,7 +17,7 @@ const arms = require('../../../assets/arms.png');
 
 
 import allActions from '../../actions'; 
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 import {moderateScale} from 'react-native-size-matters';
 import {primary, accent} from '../../utilities/colors';
 import {withNetwork, post_call} from '../../services/network';

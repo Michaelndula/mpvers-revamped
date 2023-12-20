@@ -13,7 +13,7 @@ import DropDown from 'react-native-paper-dropdown';
 import {moderateScale} from 'react-native-size-matters';
 
 import CountryPicker from 'react-native-country-picker-modal';
-import Container from '../../../ui/components/component';
+import Container from '../../../ui/components/container';
 import Icon from '../../../ui/components/icon';
 import {accent} from '../../../utilities/colors';
 

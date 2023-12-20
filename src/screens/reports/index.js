@@ -5,7 +5,7 @@ import {FlatList, StyleSheet, StatusBar, View, Text} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 
 import Header from '../../ui/header';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 
 const forms = [
   {label: 'AEFI', value: 'aefis'},

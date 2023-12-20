@@ -14,7 +14,7 @@ import { moderateScale } from 'react-native-size-matters';
 
 import { storeLocalStorage } from '../../storage/db';
 import { light_grey, primary, accent } from '../../utilities/colors';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 import { sortKeyValue, sortLinkedData } from '../../utilities/validation';
 import { withNetwork, networkCall } from '../../services/network';
 const arms = require('../../../assets/arms.png');

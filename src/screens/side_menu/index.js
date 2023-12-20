@@ -9,7 +9,7 @@ import { TouchableOpacity } from 'react-native';
 import { primary } from '../../utilities/colors';
 import { moderateScale } from 'react-native-size-matters';
 import Icon from '../../ui/components/icon';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 const ListItem = (props) => {
     return (
         <TouchableOpacity

@@ -14,12 +14,12 @@ import Notification from './notifications';
 import ViewMessage from './notifications/view';
 import Profile from './profile';
 import Password from './password';
-// import Forms from 'PPB_App/src/screens/forms';
-// import FormList from 'PPB_App/src/screens/forms';
-// import FormAdd from 'PPB_App/src/screens/forms/add';
-// import FormView from 'PPB_App/src/screens/forms/view';
-// import FormEdit from 'PPB_App/src/screens/forms/followup';
-// import FormPDF from 'PPB_App/src/screens/forms/view/pdf';
+import FormAdd from './forms/add'; 
+import FormList from './forms'; 
+import Forms from './forms'; 
+import FormView from './forms/view';
+import FormEdit from './forms/followup';
+import FormPDF from './forms/view/pdf';
 import Reports from './reports';
 import ViewReports from './reports/view';
 
@@ -68,12 +68,12 @@ class App extends Component {
             <Drawer.Screen name={'Password'} component={Password} />
             <Drawer.Screen name={'Reports'} component={Reports} />
             <Drawer.Screen name={'ViewReports'} component={ViewReports} />
-            {/*  <Drawer.Screen name={'Forms'} component={Forms} />
-            <Drawer.Screen name={'FormList'} component={FormList} />
             <Drawer.Screen name={'FormAdd'} component={FormAdd} />
+            <Drawer.Screen name={'Forms'} component={Forms} />
+            <Drawer.Screen name={'FormList'} component={FormList} />
             <Drawer.Screen name={'FormEdit'} component={FormEdit} />
             <Drawer.Screen name={'FormView'} component={FormView} />
-          
+
             <Drawer.Screen
               name={'FormPDF'}
               component={FormPDF}
@@ -87,7 +87,7 @@ class App extends Component {
                   fontWeight: 'bold',
                 },
               }}
-            /> */}
+            />
           </Drawer.Navigator>
         </NavigationContainer>
       </>

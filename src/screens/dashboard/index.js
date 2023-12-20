@@ -5,7 +5,7 @@ import {StatusBar} from 'react-native';
 import {List} from 'react-native-paper';
 
 import Header from '../../ui/header';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 
 import {withNetwork} from '../../services/network';
 import {

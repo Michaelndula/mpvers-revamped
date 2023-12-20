@@ -6,7 +6,7 @@ import { moderateScale } from 'react-native-size-matters';
 import { Alert, ScrollView, Text, StatusBar, StyleSheet } from 'react-native';
 
 import Header from '../../../ui/header';
-import Container from '../../../ui/components/component';
+import Container from '../../../ui/components/container';
 
 import { withNetwork, post_call } from '../../../services/network';
 import { capitalizeFirstLetter } from '../../../utilities/validation';

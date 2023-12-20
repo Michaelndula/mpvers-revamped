@@ -12,7 +12,7 @@ import {TextInput, Snackbar, Button} from 'react-native-paper';
 import {moderateScale} from 'react-native-size-matters';
 
 import Header from '../../ui/header';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 import {accent, green} from '../../utilities/colors';
 import {withNetwork, post_call} from '../../services/network';
 

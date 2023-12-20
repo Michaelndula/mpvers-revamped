@@ -5,7 +5,7 @@ import {FlatList, StatusBar} from 'react-native';
 import {List} from 'react-native-paper';
 
 import Header from '../../ui/header';
-import Container from '../../ui/components/component';
+import Container from '../../ui/components/container';
 import {EmptyList} from '../../ui/components/empty_list';
 import {withNetwork, get_call} from '../../services/network';
 
