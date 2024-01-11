@@ -328,6 +328,24 @@ export const padr = [
   },
   {
     section_id: 5,
+    question_id: 'outcome',
+    question: 'Outcome',
+    answer_type: 'radiobox',
+    options: [
+      {name: 'Recovered/resolved', value: 'Recovered/resolved'},
+      {name: 'Recovering/resolving', value: 'Recovering/resolving'},
+      {
+        name: 'Recovered/resolved with sequelae',
+        value: 'Recovered/resolved with sequelae',
+      },
+      {name: 'Not recovered/not resolved', value: 'Not recovered/not resolved'},
+      {name: 'Death', value: 'Death'},
+      {name: 'Unknown', value: 'Unknown'},
+    ],
+    required: true,
+  },
+  {
+    section_id: 6,
     question_id: 'Attachment',
     question:
       'Do you have pictures or documents that you would like to send to PPB? click on the button to add them',
@@ -336,6 +354,17 @@ export const padr = [
       {question_id: 'file'},
       {question_id: 'filename'},
       {question_id: 'description'},
+    ],
+  },
+  {
+    section_id: 7,
+    section: 'If we need further information to help us understand the case do we have your permission to contact you?',
+    question_id: 'consent',
+    question: '',
+    answer_type: 'dropdown',
+    options: [
+      {label: 'Yes', value: 'Yes'},
+      {label: 'No', value: 'No'},
     ],
   },
 ];
