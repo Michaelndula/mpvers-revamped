@@ -13,6 +13,7 @@ export const withNetwork = (action, onNetworkError) => {
     .then((state) => {
       if (state.isConnected) {
         action();
+        
       } else {
         onNetworkError('Could not connect to Internet');
       }
