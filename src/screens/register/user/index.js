@@ -192,7 +192,7 @@ export default class Login extends React.Component {
               {this.state.designationList &&
                 this.state.designationList.length > 0 && (
                   <DropDown
-                    label={'Designation'}
+                    label="Designation"
                     mode={'outlined'}
                     visible={this.state.designationDropdown}
                     showDropDown={() => this.setShowHide('designationDropdown')}
@@ -264,7 +264,7 @@ export default class Login extends React.Component {
           action={{
             label: 'OK',
           }}>
-          {this.state.message}
+          <Text>{this.state.message}</Text>
         </Snackbar>
       </Container>
     );
@@ -323,6 +323,7 @@ const styles = StyleSheet.create({
     color: accent,
   },
   textLoginMsg: {
+    color: accent,
     fontSize: moderateScale(14),
   },
 });

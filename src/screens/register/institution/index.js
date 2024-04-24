@@ -390,7 +390,7 @@ export default class Institution extends React.Component {
                 }
               />
               <DropDown
-                label={'County'}
+                label="County"
                 mode={'outlined'}
                 visible={this.state.countyDropdown}
                 showDropDown={() => this.openCloseMenu()}
@@ -453,7 +453,7 @@ export default class Institution extends React.Component {
           action={{
             label: 'OK',
           }}>
-          {this.state.message}
+          <Text>{this.state.message}</Text>
         </Snackbar>
       </Container>
     );
