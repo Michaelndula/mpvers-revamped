@@ -37,9 +37,7 @@ export default class Register extends React.Component {
             },
             indicatorStyle: {backgroundColor: accent},
             style: {backgroundColor: primary},
-          }}
-          
-          >
+          }}>
           <Tab.Screen
             name={'User'}
             component={User}
