@@ -23,6 +23,19 @@ export const sadr = [
   },
   {
     section_id: 1,
+    question_id: 'report_misuse',
+    question: 'Suspected misuse, abuse and / or dependence on medicines ',
+    answer_type: 'checkbox',
+  },
+  {
+    section_id: 1,
+    question_id: 'report_off_label',
+    question: 'Off-label Use',
+    answer_type: 'checkbox',
+  },
+  
+  {
+    section_id: 1,
     section: 'Product category (Tick appropriate box) *',
     question_id: 'medicinal_product',
     question: 'Medicinal product ',
@@ -228,6 +241,13 @@ export const sadr = [
       'Brief description of reaction (Please describe the reaction in terms of symptoms)',
     answer_type: 'text',
     required: true,
+  },
+  {
+    section_id: 4, 
+    question_id: 'Sadr-Other-Description',
+    question: 'Other Description',
+    answer_type: 'multitext',
+    options: [{question_id: 'description'}],
   },
   {
     section_id: 4,

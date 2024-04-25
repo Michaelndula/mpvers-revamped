@@ -7,7 +7,11 @@ export const validateSADR = (answers, section_id) => {
         (ansItem) =>
           (ansItem.answer === '1' && ansItem.question_id === 'report_sadr') ||
           (ansItem.answer === '1' &&
-            ansItem.question_id === 'report_therapeutic'),
+            ansItem.question_id === 'report_therapeutic') ||
+            (ansItem.answer === '1' &&
+            ansItem.question_id === 'report_misuse')||
+            (ansItem.answer === '1' &&
+            ansItem.question_id === 'report_off_label'),
       );
       if (check.length < 1) {
         Alert.alert(
