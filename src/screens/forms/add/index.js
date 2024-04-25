@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import {
   StatusBar,
   ScrollView,
@@ -10,26 +10,26 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
-import {Title, Button} from 'react-native-paper';
+import { moderateScale } from 'react-native-size-matters';
+import { Title, Button } from 'react-native-paper';
 
 import Header from '../../../ui/header';
 import Container from '../../../ui/components/container';
 import Questions from '../../../ui/components/questions';
 
-import {accent, green, blue, red} from '../../../utilities/colors';
-import {setForm} from '../../../form_data';
+import { accent, green, blue, red } from '../../../utilities/colors';
+import { setForm } from '../../../form_data';
 import {
   generateInitialForm,
   checkSectionRequired,
   setBackground,
 } from '../../../utilities/validation';
-import {withNetwork, post_call} from '../../../services/network';
-import {fetchLocalStorage, storeLocalStorage} from '../../../storage/db';
+import { withNetwork, post_call } from '../../../services/network';
+import { fetchLocalStorage, storeLocalStorage } from '../../../storage/db';
 import {
   validateReporter,
   validateAEFI,
-  validatePQMP,
+  validatePQHPT,
   validatePADR,
   validateSADR,
   validateDevice,
@@ -40,7 +40,7 @@ import {
 class FormAdd extends React.Component {
   constructor(props) {
     super(props);
-    const {form_type, form_id, form_data} = this.props.route.params;
+    const { form_type, form_id, form_data } = this.props.route.params;
 
     this.state = {
       loading: false,
@@ -66,7 +66,7 @@ class FormAdd extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    const {form_type, form_id, form_data} = nextProps.route.params;
+    const { form_type, form_id, form_data } = nextProps.route.params;
 
     this.setState({
       section_id: 1,
@@ -80,28 +80,28 @@ class FormAdd extends React.Component {
 
   loadData = () => {
     fetchLocalStorage('countries').then((data) => {
-      data.unshift({label: 'Select Country', value: ''});
-      this.setState({countries: data});
+      data.unshift({ label: 'Select Country', value: '' });
+      this.setState({ countries: data });
     });
 
     fetchLocalStorage('counties').then((data) => {
-      data.unshift({label: 'Select County', value: ''});
-      this.setState({counties: data});
+      data.unshift({ label: 'Select County', value: '' });
+      this.setState({ counties: data });
     });
 
     fetchLocalStorage('subcounties').then((data) => {
-      data.unshift({label: 'Select Sub County', value: null});
-      this.setState({subcounties: data});
+      data.unshift({ label: 'Select Sub County', value: null });
+      this.setState({ subcounties: data });
     });
 
     fetchLocalStorage('designations').then((data) => {
-      data.unshift({label: 'Select Designation', value: ''});
-      this.setState({designations: data});
+      data.unshift({ label: 'Select Designation', value: '' });
+      this.setState({ designations: data });
     });
 
     fetchLocalStorage('vaccines').then((data) => {
-      data.unshift({label: 'Select Vaccine', value: ''});
-      this.setState({vaccines: data});
+      data.unshift({ label: 'Select Vaccine', value: '' });
+      this.setState({ vaccines: data });
     });
 
     this.state.formData
@@ -112,7 +112,7 @@ class FormAdd extends React.Component {
   };
 
   submitCompleteForm = () => {
-    this.setState({loading: true});
+    this.setState({ loading: true });
     let reporter_validate = validateReporter(this.state.answers);
     let form = generateInitialForm(
       this.state.formData,
@@ -129,13 +129,13 @@ class FormAdd extends React.Component {
           post_call(url, this.props.authToken, form).then((response) => {
             if (response.data.status === 'success') {
               this.setState(
-                {section_id: 1, loading: false, submitForm: false, answers: []},
+                { section_id: 1, loading: false, submitForm: false, answers: [] },
                 () => {
                   this.updateFormList(response.data.message);
                 },
               );
             } else {
-              this.setState({loading: false});
+              this.setState({ loading: false });
               let message = response.data.message;
               if (response.data?.validation) {
                 for (let key in response.data?.validation) {
@@ -150,17 +150,17 @@ class FormAdd extends React.Component {
           let message = 'Check your internet and try again. Form auto-saved';
           this.saveForm();
 
-          this.setState({isInternetReachable: false, loading: false});
+          this.setState({ isInternetReachable: false, loading: false });
           Alert.alert('Internet Error', message);
         },
       );
     } else {
-      this.setState({loading: false});
+      this.setState({ loading: false });
     }
   };
 
   saveForm() {
-    this.setState({loadingSave: true});
+    this.setState({ loadingSave: true });
     fetchLocalStorage(this.state.formType + '_forms').then((data) => {
       if (data === null || (data && data.length < 1)) {
         storeLocalStorage(this.state.formType + '_forms', [
@@ -170,7 +170,7 @@ class FormAdd extends React.Component {
             report_type: 'initial',
             data: this.state.answers,
           },
-        ]).then(() => this.setState({loadingSave: false}));
+        ]).then(() => this.setState({ loadingSave: false }));
       } else {
         let updated_forms = data.filter(
           (formItem) => formItem.form_id !== this.state.formID.toString(),
@@ -184,7 +184,7 @@ class FormAdd extends React.Component {
         });
 
         storeLocalStorage(this.state.formType + '_forms', updated_forms).then(
-          () => this.setState({loadingSave: false}),
+          () => this.setState({ loadingSave: false }),
         );
       }
     });
@@ -217,7 +217,7 @@ class FormAdd extends React.Component {
     });
 
     if (form_complete === -1 && this.state.submitForm === false) {
-      this.setState({submitForm: true});
+      this.setState({ submitForm: true });
     }
 
     return form_complete === -1;
@@ -238,7 +238,7 @@ class FormAdd extends React.Component {
       if (this.state.formType === 'aefi') {
         required_check = validateAEFI(this.state.answers, section_id);
       } else if (this.state.formType === 'pqmp') {
-        required_check = validatePQMP(this.state.answers, section_id);
+        required_check = validatePQHPT(this.state.answers, section_id);
       } else if (this.state.formType === 'sadr') {
         required_check = validateSADR(this.state.answers, section_id);
       } else if (this.state.formType === 'padr') {
@@ -260,9 +260,9 @@ class FormAdd extends React.Component {
     }
 
     if (!required_check) {
-      this.setState({section_id: section}, () => {
+      this.setState({ section_id: section }, () => {
         setTimeout(() => {
-          this.srollViewMain.scrollTo({x: 0, y: 0, animated: true});
+          this.srollViewMain.scrollTo({ x: 0, y: 0, animated: true });
         }, 1000);
       });
     }
@@ -285,7 +285,7 @@ class FormAdd extends React.Component {
     };
 
     filter_answers.push(answer_object);
-    this.setState({answers: filter_answers});
+    this.setState({ answers: filter_answers });
   };
 
   onChangeFacility = (question_id, choice, type) => {
@@ -390,7 +390,7 @@ class FormAdd extends React.Component {
       });
     }
 
-    this.setState({answers: filter_answers});
+    this.setState({ answers: filter_answers });
   };
 
   onAdd = async (question_id, text) => {
@@ -418,7 +418,7 @@ class FormAdd extends React.Component {
     };
 
     answers.push(answer_object);
-    this.setState({answers: answers});
+    this.setState({ answers: answers });
   };
 
   onDelete = (question_id) => {
@@ -427,7 +427,7 @@ class FormAdd extends React.Component {
       (sitem) => sitem.question_id !== question_id,
     );
 
-    this.setState({answers: filter_answers});
+    this.setState({ answers: filter_answers });
   };
 
   getAnswer(question_id) {
@@ -438,7 +438,7 @@ class FormAdd extends React.Component {
   }
 
   goBack = () => {
-    this.setState({section_id: 1, submitForm: false, answers: []});
+    this.setState({ section_id: 1, submitForm: false, answers: [] });
     if (!this.props.user) {
       this.props.navigation.navigate('Intro');
     } else {
@@ -464,17 +464,24 @@ class FormAdd extends React.Component {
         }
         behavior={'padding'}
         style={styles.viewContainer}>
-        <Container style={{backgroundColor: this.state.formBackground}}>
+        <Container style={{ backgroundColor: this.state.formBackground }}>
           <StatusBar
             translucent
             barStyle={'dark-content'}
             backgroundColor={'transparent'}
           />
           <Header title="Forms" goBack={this.goBack} />
+          
           <Title style={styles.textTitle}>
-            {this.state.formType !== 'device' &&
-              this.state.formType.toUpperCase() + ' '}
-            {this.state.formType === 'device' && 'Medical Devices Incident '}
+            {this.state.formType !== 'device' && this.state.formType !== 'pqmp' && (
+              <>{this.state.formType.toUpperCase()} </> 
+            )}
+            {this.state.formType === 'device' && (
+              <>Medical Devices Incident </>  
+            )}
+            {this.state.formType === 'pqmp' && (
+              <>PQHPT </>  
+            )}
             Reporting Form
           </Title>
 

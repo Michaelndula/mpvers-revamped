@@ -91,9 +91,9 @@ android {
         }
         release {
             storeFile file('PPB_App.keystore')
-            storePassword 'PPB_App'
-            keyAlias 'PPB_App'
-            keyPassword 'PPB_App'
+            storePassword 'mPvERS'
+            keyAlias 'mPvERS'
+            keyPassword 'mPvERS'
         }
     }
     buildTypes {

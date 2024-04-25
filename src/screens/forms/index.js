@@ -31,6 +31,7 @@ class FormList extends React.Component {
 
   componentDidMount() {
     this.loadForms();
+     
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -138,7 +139,7 @@ class FormList extends React.Component {
           backgroundColor={'transparent'}
         />
         <Header
-          title={`${this.state.formType.toUpperCase()} Reporting Forms`}
+          title={`${this.state.formType === 'pqmp'? "PQHPT" :this.state.formType.toUpperCase()} Reporting Forms`}
           goBack={this.goBack}
         />
         <>

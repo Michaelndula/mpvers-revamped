@@ -76,8 +76,8 @@ export default class Dashboard extends React.Component {
           />
           <List.Item
             style={{backgroundColor: pqmp}}
-            title="PQMP Reporting Form"
-            description="Poor-Quality Medical Products & Health Technologies"
+            title="PQHPT Reporting Form"
+            description="Poor-Quality Health Products And Health Technologies"
             left={(props) => <List.Icon {...props} icon="file" />}
             onPress={() => this.redirect('pqmp')}
           />

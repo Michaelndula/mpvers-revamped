@@ -10,7 +10,7 @@ import Container from '../../ui/components/container';
 const forms = [
   {label: 'AEFI', value: 'aefis'},
   {label: 'SADR', value: 'sadrs'},
-  {label: 'PQMP', value: 'pqmps'},
+  {label: 'PQHPT', value: 'pqmps'},
   {label: 'Medical Devices', value: 'devices'},
   {label: 'Medications', value: 'medication'},
   {label: 'Transfusions', value: 'transfusions'},

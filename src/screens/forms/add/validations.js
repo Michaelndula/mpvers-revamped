@@ -128,7 +128,7 @@ export const validatePADR = (answers, section_id) => {
   }
 };
 
-export const validatePQMP = (answers, section_id) => {
+export const validatePQHPT = (answers, section_id) => {
   if (answers.length > 0) {
     if (section_id === 6) {
       let check = answers.filter((ansItem) => ansItem.answer === '1');
