@@ -11,15 +11,15 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux'; 
-import {TextInput, Snackbar, Button} from 'react-native-paper'; 
+import {bindActionCreators} from 'redux';
+import {TextInput, Snackbar, Button} from 'react-native-paper';
 const arms = require('../../../assets/arms.png');
 
 
 import allActions from '../../actions'; 
 import Container from '../../ui/components/container';
 import {moderateScale} from 'react-native-size-matters';
-import {primary, accent} from '../../utilities/colors';
+import {primary, accent, black} from '../../utilities/colors';
 import {withNetwork, post_call} from '../../services/network';
 import {storeLocalStorage} from '../../storage/db';
 
@@ -260,6 +260,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(15),
   },
   textRegisterMsg: {
+    color: primary,
     fontSize: moderateScale(14),
   },
   textRegister: {

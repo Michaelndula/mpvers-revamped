@@ -18,8 +18,8 @@ import {
   networkCall,
   post_call,
 } from '../../../services/network';
-import Container from '../../../storage/db';
-import {accent, green} from '../../../utilities/colors';
+import Container from '../../../ui/components/container';
+import {accent, green, primary} from '../../../utilities/colors';
 import {fetchLocalStorage} from '../../../storage/db';
 
 const theme = {
@@ -312,7 +312,9 @@ export default class Institution extends React.Component {
                     });
                   }}
                 />
-                <Text>Are you reporting for market authority?</Text>
+                <Text style={styles.marketAuthorityTest}>
+                  Are you reporting for market authority?
+                </Text>
               </View>
 
               {this.state.showCompanyEmail && (
@@ -362,9 +364,7 @@ export default class Institution extends React.Component {
                 placeholder="Institution Email"
                 keyboardType="email-address"
                 value={this.state.institution_email}
-                onChangeText={(text) =>
-                  this.setState({institution_email: text})
-                }
+                onChangeText={text => this.setState({institution_email: text})}
               />
               <TextInput
                 theme={theme}
@@ -390,7 +390,7 @@ export default class Institution extends React.Component {
                 }
               />
               <DropDown
-                label={'County'}
+                label="County"
                 mode={'outlined'}
                 visible={this.state.countyDropdown}
                 showDropDown={() => this.openCloseMenu()}
@@ -453,7 +453,7 @@ export default class Institution extends React.Component {
           action={{
             label: 'OK',
           }}>
-          {this.state.message}
+          <Text>{this.state.message}</Text>
         </Snackbar>
       </Container>
     );
@@ -472,6 +472,9 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(20),
     marginLeft: moderateScale(30),
     marginRight: moderateScale(30),
+  },
+  marketAuthorityTest: {
+    color: accent,
   },
   viewCompanyEmail: {
     flexDirection: 'row',
@@ -498,6 +501,7 @@ const styles = StyleSheet.create({
   },
   textChallenge: {
     width: '30%',
+    color: accent,
     fontSize: moderateScale(15),
   },
   textInputChallenge: {
@@ -509,6 +513,7 @@ const styles = StyleSheet.create({
     color: accent,
   },
   textLoginMsg: {
+    color: primary,
     fontSize: moderateScale(14),
   },
   listFacilities: {
