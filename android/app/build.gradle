@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.mpvers"
+    namespace "com.ppb_app"
     defaultConfig {
-        applicationId "com.mpvers"
+        applicationId "com.ppb_app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -90,10 +90,10 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file('mPvERS.keystore')
-            storePassword 'mPvERS'
-            keyAlias 'mPvERS'
-            keyPassword 'mPvERS'
+            storeFile file('PPB_App.keystore')
+            storePassword 'PPB_App'
+            keyAlias 'PPB_App'
+            keyPassword 'PPB_App'
         }
     }
     buildTypes {

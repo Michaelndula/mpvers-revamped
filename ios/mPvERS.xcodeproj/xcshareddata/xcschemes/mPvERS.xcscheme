@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "mPvERS.app"
-               BlueprintName = "mPvERS"
-               ReferencedContainer = "container:mPvERS.xcodeproj">
+               BuildableName = "PPB_App.app"
+               BlueprintName = "PPB_App"
+               ReferencedContainer = "container:PPB_App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "mPvERSTests.xctest"
                BlueprintName = "mPvERSTests"
-               ReferencedContainer = "container:mPvERS.xcodeproj">
+               ReferencedContainer = "container:PPB_App.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "mPvERS.app"
-            BlueprintName = "mPvERS"
-            ReferencedContainer = "container:mPvERS.xcodeproj">
+            BuildableName = "PPB_App.app"
+            BlueprintName = "PPB_App"
+            ReferencedContainer = "container:PPB_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "mPvERS.app"
-            BlueprintName = "mPvERS"
-            ReferencedContainer = "container:mPvERS.xcodeproj">
+            BuildableName = "PPB_App.app"
+            BlueprintName = "PPB_App"
+            ReferencedContainer = "container:PPB_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
