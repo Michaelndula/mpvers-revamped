@@ -20,6 +20,7 @@ export const padr = [
     question: 'Mobile No.',
     answer_type: 'phone-pad',
     required: true,
+    note:'Your phone number is important for follow up by the Pharmacy and Poisons Board and to obtain additional information as well as providing you with the feedback'
   },
   {
     section_id: 1,
@@ -357,11 +358,12 @@ export const padr = [
     ],
   },
   {
-    section_id: 7,
-    section: 'If we need further information to help us understand the case do we have your permission to contact you?',
+    section_id: 6, 
     question_id: 'consent',
-    question: '',
+    section:'If we need further information to help us understand the case do we have your permission to contact you?',
+    question: 'Consent',
     answer_type: 'dropdown',
+    required: true,
     options: [
       {label: 'Yes', value: 'Yes'},
       {label: 'No', value: 'No'},

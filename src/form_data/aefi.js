@@ -67,8 +67,7 @@ export const aefi = [
     answer_type: 'radiobox',
     options: [
       {name: 'Male', value: 'Male'},
-      {name: 'Female', value: 'Female'},
-      {name: 'Unknown', value: 'Unknown'},
+      {name: 'Female', value: 'Female'}
     ],
     required: true,
   },
@@ -287,6 +286,12 @@ export const aefi = [
         search: 'vaccines',
         search_url: 'vaccines',
       },
+      // {
+      //   order_id: 1,
+      //   question_id: 'vaccine_name',
+      //   question: '',
+      //   answer_type: 'text',
+      // },
       {
         order_id: 2,
         question_id: 'dosage',
@@ -331,6 +336,7 @@ export const aefi = [
         question_id: 'batch_number',
         question: 'Lot/Batch No.',
         answer_type: 'text',
+        required: true,
       },
       {
         order_id: 8,
@@ -350,6 +356,7 @@ export const aefi = [
         question_id: 'diluent_batch_number',
         question: 'Lot/Batch No.',
         answer_type: 'text',
+        required: true,
       },
       {
         order_id: 11,

@@ -112,6 +112,7 @@ export const pqmp = [
     question_id: 'batch_number',
     question: 'Batch/Lot Number',
     answer_type: 'text',
+    required: true,
   },
   {
     section_id: 3,
@@ -442,7 +443,7 @@ export const pqmp = [
   },
   {
     section_id: 8,
-    question_id: 'result_in_adverse_drug_reaction',
+    question_id: 'adverse_reaction',
     question: 'Did the drug result in an adverse drug reaction?',
     answer_type: 'radiobox',
     options: [
@@ -452,7 +453,7 @@ export const pqmp = [
   },
   {
     section_id: 8,
-    question_id: 'result_in_medical_error',
+    question_id: 'medication_error',
     question: 'Did the product result in a medication error?',
     answer_type: 'radiobox',
     options: [
@@ -472,6 +473,7 @@ export const pqmp = [
     question: 'Comments (if any)',
     answer_type: 'text',
   },
+  
   {
     section_id: 9,
     question_id: 'Attachment',

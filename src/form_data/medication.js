@@ -84,8 +84,7 @@ export const medication = [
     answer_type: 'radiobox',
     options: [
       {name: 'Male', value: 'Male'},
-      {name: 'Female', value: 'Female'},
-      {name: 'Unknown', value: 'Unknown'},
+      {name: 'Female', value: 'Female'}
     ],
     required: true,
   },
@@ -498,6 +497,18 @@ export const medication = [
     question:
       'Suggest any recommendations, or describe policies or procedures you instituted or plan to institute to prevent future similar errors. If available, kindly attach an investigational report e.g. Root Cause Analysis (RCA)',
     answer_type: 'text',
+    required: true,
+  },
+  {
+    section_id: 10,
+    section: 'Did the drug result in an medicine side effects?',
+    question_id: 'adverse_reaction',
+    question: 'Any side effects',
+    answer_type: 'radiobox',
+    options: [
+      {name: 'Yes', value: 'Yes'},
+      {name: 'No', value: 'No'},
+    ],
     required: true,
   },
   {

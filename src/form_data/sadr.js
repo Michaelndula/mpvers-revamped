@@ -155,9 +155,8 @@ export const sadr = [
     question: 'Gender',
     answer_type: 'radiobox',
     options: [
-      {name: 'Male', value: 'Male'},
-      {name: 'Female', value: 'Female'},
-      {name: 'Unknown', value: 'Unknown'},
+      { name: 'Male', value: 'Male' },
+      { name: 'Female', value: 'Female' }
     ],
     required: true,
   },
