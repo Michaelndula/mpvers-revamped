@@ -67,8 +67,7 @@ export const aefi = [
     answer_type: 'radiobox',
     options: [
       {name: 'Male', value: 'Male'},
-      {name: 'Female', value: 'Female'},
-      {name: 'Unknown', value: 'Unknown'},
+      {name: 'Female', value: 'Female'}
     ],
     required: true,
   },
