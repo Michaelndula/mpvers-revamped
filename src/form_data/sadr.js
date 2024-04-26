@@ -358,7 +358,7 @@ export const sadr = [
         question: 'Frequency',
         answer_type: 'dropdown',
         options: 'frequencies',
-        required: true
+        required: true,
       },
       {
         order_id: 9,
@@ -368,8 +368,8 @@ export const sadr = [
         required: false,
         display_condition: {
           field: 'frequency_id',
-          value: 'Other'
-        }
+          value: 'Other',
+        },
       },
       {
         order_id: 10,
@@ -494,8 +494,8 @@ export const sadr = [
         required: false,
         display_condition: {
           field: 'frequency_id',
-          value: 'Other'
-        }
+          value: 'Other',
+        },
       },
       {
         order_id: 10,
