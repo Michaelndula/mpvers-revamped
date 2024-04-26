@@ -263,6 +263,7 @@ export const aefi = [
     headers: 2,
     options: [
       {1: 'Name of Vaccine', 2: ''},
+      {1: 'Other Vaccine Name.', 2: ''},
       {1: 'Dose No.', 2: ''},
       {1: 'Date Vaccinated', 2: ''},
       {1: 'Time Vaccinated', 2: ''},
@@ -282,24 +283,25 @@ export const aefi = [
         question_id: 'vaccine_name',
         question: 'Name of Vaccine(e.g. BCG,DPT-Hib-HeB)',
         answer_type: 'text',
-        required: true,
+        // required: true,
         search: 'vaccines',
         search_url: 'vaccines',
       },
-      // {
-      //   order_id: 1,
-      //   question_id: 'vaccine_name',
-      //   question: '',
-      //   answer_type: 'text',
-      // },
       {
-        order_id: 2,
+        order_id: 1,
+        question_id: 'vaccine_name_other',
+        question: 'Vaccine Name.',
+        answer_type: 'text',
+        note:'If not in list above'
+      },
+      {
+        order_id: 3,
         question_id: 'dosage',
         question: 'Dose No.',
         answer_type: 'text',
       },
       {
-        order_id: 3,
+        order_id: 4,
         question_id: 'vaccination_date',
         question: 'Date Vaccinated',
         answer_type: 'date',

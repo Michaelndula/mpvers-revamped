@@ -120,7 +120,7 @@ class FormAdd extends React.Component {
       this.state.formType,
     );
 
-    // console.log(JSON.stringify(form));
+    console.log(JSON.stringify(form));
 
     if (form !== null && reporter_validate) { 
       withNetwork(
