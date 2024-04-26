@@ -120,13 +120,15 @@ class FormAdd extends React.Component {
       this.state.formType,
     );
 
-    //console.log(JSON.stringify(form));
+    // console.log(JSON.stringify(form));
 
-    if (form !== null && reporter_validate) {
+    if (form !== null && reporter_validate) { 
       withNetwork(
         () => {
           let url = this.state.formType + 's/add';
           post_call(url, this.props.authToken, form).then((response) => {
+            // console.log(response.data.status);
+            // console.log(response.data);
             if (response.data.status === 'success') {
               this.setState(
                 { section_id: 1, loading: false, submitForm: false, answers: [] },
@@ -154,7 +156,7 @@ class FormAdd extends React.Component {
           Alert.alert('Internet Error', message);
         },
       );
-    } else {
+    } else { 
       this.setState({ loading: false });
     }
   };

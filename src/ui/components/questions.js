@@ -445,6 +445,7 @@ class Question extends React.Component {
       required = form.hasOwnProperty('required') ? form.required : false,
       search = form.hasOwnProperty('search') ? form.search : null,
       search_url = form.hasOwnProperty('search_url') ? form.search_url : null,
+      note=form.hasOwnProperty('note') ? form.note : null,
       question_id = form.question_id,
       question = form.question,
       answer_type = form.answer_type,
@@ -499,21 +500,26 @@ class Question extends React.Component {
               (question_linked && answer_linked === '1') ||
               (question_linked && answer_linked === 'Yes') ||
               (section_linked && section_linked === answer_linked)) && (
-              <TextInput
-                mode="outlined"
-                theme={theme}
-                value={answer}
-                placeholder={question + this.checkRequired(required)}
-                style={[styles.textInput, style]}
-                keyboardType={answer_type !== 'text' ? answer_type : 'default'}
-                returnKeyType="done"
-                onChangeText={(text) => {
-                  onChange(question_id, text);
-                  if (search) {
-                    this.searchChangeText(text.toLowerCase(), search_url);
-                  }
-                }}
-              />
+              <>
+                <TextInput
+                  mode="outlined"
+                  theme={theme}
+                  value={answer}
+                  placeholder={question + this.checkRequired(required)}
+                  style={[styles.textInput, style]}
+                  keyboardType={answer_type !== 'text' ? answer_type : 'default'}
+                  returnKeyType="done"
+                  onChangeText={(text) => {
+                    onChange(question_id, text);
+                    if (search) {
+                      this.searchChangeText(text.toLowerCase(), search_url);
+                    }
+                  }}
+                />
+                {note && ( // Check if 'note' attribute exists
+                  <Text style={styles.noteText}>{note}</Text>
+                )}
+              </>
             )}
             {search && this.state.showList && (
               <View style={styles.listFacilities}>
@@ -531,10 +537,56 @@ class Question extends React.Component {
                       />
                     );
                   })}
+                {note && ( // Check if 'note' attribute exists
+                  <Text style={styles.noteText}>{note}</Text>
+                )}
               </View>
             )}
           </View>
         );
+        
+        // view = (
+        //   <View>
+        //     {(question_linked === null ||
+        //       (question_linked && answer_linked === '1') ||
+        //       (question_linked && answer_linked === 'Yes') ||
+        //       (section_linked && section_linked === answer_linked)) && (
+        //       <TextInput
+        //         mode="outlined"
+        //         theme={theme}
+        //         value={answer}
+        //         placeholder={question + this.checkRequired(required)}
+        //         style={[styles.textInput, style]}
+        //         keyboardType={answer_type !== 'text' ? answer_type : 'default'}
+        //         returnKeyType="done"
+        //         onChangeText={(text) => {
+        //           onChange(question_id, text);
+        //           if (search) {
+        //             this.searchChangeText(text.toLowerCase(), search_url);
+        //           }
+        //         }}
+        //       />
+        //     )}
+        //     {search && this.state.showList && (
+        //       <View style={styles.listFacilities}>
+        //         {this.state.facilityList.length > 0 &&
+        //           this.state.facilityList.map((facility, index) => {
+        //             return (
+        //               <List.Item
+        //                 key={index}
+        //                 title={search === 'dynamic' ? facility : facility.label}
+        //                 onPress={() => {
+        //                   Keyboard.dismiss();
+        //                   onChangeFacility(question_id, facility, search);
+        //                   this.setState({showList: false});
+        //                 }}
+        //               />
+        //             );
+        //           })}
+        //       </View>
+        //     )}
+        //   </View>
+        // );
         break;
       case 'multitext':
         view = (
@@ -1259,6 +1311,11 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     borderRadius: moderateScale(0.5),
     backgroundColor: 'white',
+  },
+  noteText: {
+    fontSize: 12,
+    color: 'gray',
+    marginTop: 5,
   },
   imageThumbnail: {
     height: moderateScale(50),

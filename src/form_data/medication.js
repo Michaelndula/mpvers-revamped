@@ -500,6 +500,18 @@ export const medication = [
     required: true,
   },
   {
+    section_id: 10,
+    section: 'Did the drug result in an medicine side effects?',
+    question_id: 'adverse_reaction',
+    question: 'Any side effects',
+    answer_type: 'radiobox',
+    options: [
+      {name: 'Yes', value: 'Yes'},
+      {name: 'No', value: 'No'},
+    ],
+    required: true,
+  },
+  {
     section_id: 11,
     question_id: 'Attachment',
     question:
