@@ -362,7 +362,7 @@ export const sadr = [
       },
       {
         order_id: 9,
-        question_id: 'frequency_other_id',
+        question_id: 'frequency_id_other',
         question: 'Frequency Other Specify',
         answer_type: 'text',
         required: false,
@@ -488,7 +488,7 @@ export const sadr = [
       },
       {
         order_id: 9,
-        question_id: 'frequency_other_id',
+        question_id: 'frequency_id_other',
         question: 'Frequency Other Specify',
         answer_type: 'text',
         required: false,

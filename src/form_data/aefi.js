@@ -280,7 +280,7 @@ export const aefi = [
     table_form: [
       {
         order_id: 1,
-        question_id: 'vaccine_name',
+        question_id: 'vaccine_name_other',
         question: 'Name of Vaccine(e.g. BCG,DPT-Hib-HeB)',
         answer_type: 'text',
         // required: true,
@@ -288,8 +288,8 @@ export const aefi = [
         search_url: 'vaccines',
       },
       {
-        order_id: 1,
-        question_id: 'vaccine_name_other',
+        order_id: 2,
+        question_id: 'vaccine_name',
         question: 'Vaccine Name.',
         answer_type: 'text',
         note:'If not in list above'
@@ -309,14 +309,14 @@ export const aefi = [
         required: true,
       },
       {
-        order_id: 4,
+        order_id: 5,
         question_id: 'vaccination_time',
         question: 'Time Vaccinated',
         answer_type: 'time',
         required: true,
       },
       {
-        order_id: 5,
+        order_id: 6,
         question_id: 'vaccination_route',
         question: 'Route of vaccination (i.m.,s.c.)',
         answer_type: 'dropdown',
@@ -327,13 +327,13 @@ export const aefi = [
         ],
       },
       {
-        order_id: 6,
+        order_id: 7,
         question_id: 'vaccination_site',
         question: 'Site of vaccination',
         answer_type: 'text',
       },
       {
-        order_id: 7,
+        order_id: 8,
         section: 'Details of Vaccine',
         question_id: 'batch_number',
         question: 'Lot/Batch No.',
@@ -341,19 +341,19 @@ export const aefi = [
         required: true,
       },
       {
-        order_id: 8,
+        order_id: 9,
         question_id: 'vaccine_manufacturer',
         question: 'Manufacturer’s Name',
         answer_type: 'text',
       },
       {
-        order_id: 9,
+        order_id: 10,
         question_id: 'expiry_date',
         question: 'Expiry Date',
         answer_type: 'date',
       },
       {
-        order_id: 10,
+        order_id: 11,
         section: 'Details of Diluents',
         question_id: 'diluent_batch_number',
         question: 'Lot/Batch No.',
@@ -361,13 +361,13 @@ export const aefi = [
         required: true,
       },
       {
-        order_id: 11,
+        order_id: 12,
         question_id: 'diluent_manufacturer',
         question: 'Manufacturer’s Name',
         answer_type: 'text',
       },
       {
-        order_id: 12,
+        order_id: 13,
         question_id: 'diluent_expiry_date',
         question: 'Expiry Date',
         answer_type: 'date',

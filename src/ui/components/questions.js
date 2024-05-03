@@ -14,7 +14,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import {
   List,
   Checkbox,
@@ -29,15 +29,15 @@ import PropTypes from 'prop-types';
 import ModalSelector from 'react-native-modal-selector-searchable';
 
 import Icon from '../../ui/components/icon';
-import {moderateScale} from 'react-native-size-matters';
-import {black, green, accent} from '../../utilities/colors';
-import {networkCall, withNetwork} from '../../services/network';
+import { moderateScale } from 'react-native-size-matters';
+import { black, green, accent } from '../../utilities/colors';
+import { networkCall, withNetwork } from '../../services/network';
 
 const theme = {
-  colors: {primary: accent, underlineColor: 'transparent'},
+  colors: { primary: accent, underlineColor: 'transparent' },
 };
 
-import {fetchLocalStorage} from '../../storage/db';
+import { fetchLocalStorage } from '../../storage/db';
 
 /**
  * A re usable Icon Component.
@@ -85,32 +85,32 @@ class Question extends React.Component {
 
   loadData = () => {
     fetchLocalStorage('vaccines').then((data) => {
-      this.setState({vaccines: data});
+      this.setState({ vaccines: data });
     });
 
     fetchLocalStorage('doses').then((data) => {
-      this.setState({doses: data});
+      this.setState({ doses: data });
     });
 
     fetchLocalStorage('routes').then((data) => {
-      this.setState({routes: data});
+      this.setState({ routes: data });
     });
 
     fetchLocalStorage('frequencies').then((data) => {
-      this.setState({frequencies: data});
+      this.setState({ frequencies: data });
     });
   };
 
   showCalender = () => {
-    this.setState({showCalender: !this.state.showCalender});
+    this.setState({ showCalender: !this.state.showCalender });
   };
 
   setModalVisible = () => {
-    this.setState({modalTable: !this.state.modalTable});
+    this.setState({ modalTable: !this.state.modalTable });
   };
 
   openCloseMenu = () => {
-    this.setState({dropdownStatus: !this.state.dropdownStatus});
+    this.setState({ dropdownStatus: !this.state.dropdownStatus });
   };
 
   displayDate(date, mode) {
@@ -147,7 +147,7 @@ class Question extends React.Component {
     tableForm.map((formItem) => {
       formAnswers.map((single_ans) => {
         if (formItem.question_id === single_ans.question_id) {
-          if (single_ans.question_id === 'vaccine_name') {
+          if (single_ans.question_id === 'vaccine_name_other') {
             if (single_ans.answer === null) {
               let vaccine = formAnswers
                 .filter((item) => item.question_id === 'vaccine_id')
@@ -162,7 +162,8 @@ class Question extends React.Component {
             } else {
               filteredAnswers.push(single_ans.answer);
             }
-          } else if (single_ans.question_id === 'suspected_drug') {
+          }  
+          else if (single_ans.question_id === 'suspected_drug') {
             if (single_ans.answer === '1') {
               filteredAnswers.push('suspected');
             } else {
@@ -280,7 +281,7 @@ class Question extends React.Component {
     };
 
     filter_answers.push(answer_object);
-    this.setState({table_answers: filter_answers, multipleAnswer: text});
+    this.setState({ table_answers: filter_answers, multipleAnswer: text });
   };
 
   updateMultipleImage = () => {
@@ -303,7 +304,7 @@ class Question extends React.Component {
       answers.push(file);
       answers.push(filename);
       answers.push(description);
-      this.setState({table_answers: answers});
+      this.setState({ table_answers: answers });
     } else {
       Alert.alert('Error', 'Please select an image to proceed');
     }
@@ -316,19 +317,19 @@ class Question extends React.Component {
     if (type === 'vaccines') {
       filter_answers = answers.filter(
         (sitem) =>
-          sitem.question_id !== 'vaccine_name' &&
+          sitem.question_id !== 'vaccine_name_other' &&
           sitem.question_id !== 'vaccine_id',
       );
 
       filter_answers.push({
-        question_id: 'vaccine_name',
+        question_id: 'vaccine_name_other',
         answer: choice.label,
       });
       filter_answers.push({
         question_id: 'vaccine_id',
         answer: parseInt(choice.value, 10),
       });
-      this.setState({table_answers: filter_answers});
+      this.setState({ table_answers: filter_answers });
     } else {
       filter_answers = answers.filter(
         (sitem) => sitem.question_id !== question_id,
@@ -338,7 +339,7 @@ class Question extends React.Component {
         question_id: question_id,
         answer: choice,
       });
-      this.setState({table_answers: filter_answers});
+      this.setState({ table_answers: filter_answers });
     }
   };
 
@@ -350,7 +351,7 @@ class Question extends React.Component {
     };
 
     update_answers.push(answer_object);
-    this.setState({table_answers: update_answers});
+    this.setState({ table_answers: update_answers });
   }
 
   checkRequired(require) {
@@ -362,7 +363,7 @@ class Question extends React.Component {
 
   searchChangeText = (text, endpoint) => {
     if (text.length > 1 && endpoint !== 'vaccines') {
-      this.setState({loading: true});
+      this.setState({ loading: true });
 
       if (this.state.loading) {
         withNetwork(
@@ -394,7 +395,7 @@ class Question extends React.Component {
         loading: false,
       });
     } else {
-      this.setState({facilityList: [], loading: false});
+      this.setState({ facilityList: [], loading: false });
     }
   };
 
@@ -432,7 +433,7 @@ class Question extends React.Component {
       if (response.didCancel) {
         //("User cancelled photo picker");
       } else {
-        this.setState({image: response.assets[0]});
+        this.setState({ image: response.assets[0] });
       }
     });
   }
@@ -445,7 +446,7 @@ class Question extends React.Component {
       required = form.hasOwnProperty('required') ? form.required : false,
       search = form.hasOwnProperty('search') ? form.search : null,
       search_url = form.hasOwnProperty('search_url') ? form.search_url : null,
-      note=form.hasOwnProperty('note') ? form.note : null,
+      note = form.hasOwnProperty('note') ? form.note : null,
       question_id = form.question_id,
       question = form.question,
       answer_type = form.answer_type,
@@ -466,7 +467,7 @@ class Question extends React.Component {
       dropdownOption = null,
     } = this.props;
 
-    let {answer = null, options = []} = this.props;
+    let { answer = null, options = [] } = this.props;
     if (user !== null && answer === null) {
       if (question_id === 'reporter_name' && user.name) {
         onChange('reporter_name', user.name);
@@ -500,27 +501,27 @@ class Question extends React.Component {
               (question_linked && answer_linked === '1') ||
               (question_linked && answer_linked === 'Yes') ||
               (section_linked && section_linked === answer_linked)) && (
-              <>
-                <TextInput
-                  mode="outlined"
-                  theme={theme}
-                  value={answer}
-                  placeholder={question + this.checkRequired(required)}
-                  style={[styles.textInput, style]}
-                  keyboardType={answer_type !== 'text' ? answer_type : 'default'}
-                  returnKeyType="done"
-                  onChangeText={(text) => {
-                    onChange(question_id, text);
-                    if (search) {
-                      this.searchChangeText(text.toLowerCase(), search_url);
-                    }
-                  }}
-                />
-                {note && ( // Check if 'note' attribute exists
-                  <Text style={styles.noteText}>{note}</Text>
-                )}
-              </>
-            )}
+                <>
+                  <TextInput
+                    mode="outlined"
+                    theme={theme}
+                    value={answer}
+                    placeholder={question + this.checkRequired(required)}
+                    style={[styles.textInput, style]}
+                    keyboardType={answer_type !== 'text' ? answer_type : 'default'}
+                    returnKeyType="done"
+                    onChangeText={(text) => {
+                      onChange(question_id, text);
+                      if (search) {
+                        this.searchChangeText(text.toLowerCase(), search_url);
+                      }
+                    }}
+                  />
+                  {note && ( // Check if 'note' attribute exists
+                    <Text style={styles.noteText}>{note}</Text>
+                  )}
+                </>
+              )}
             {search && this.state.showList && (
               <View style={styles.listFacilities}>
                 {this.state.facilityList.length > 0 &&
@@ -532,7 +533,7 @@ class Question extends React.Component {
                         onPress={() => {
                           Keyboard.dismiss();
                           onChangeFacility(question_id, facility, search);
-                          this.setState({showList: false});
+                          this.setState({ showList: false });
                         }}
                       />
                     );
@@ -544,7 +545,7 @@ class Question extends React.Component {
             )}
           </View>
         );
-        
+
         // view = (
         //   <View>
         //     {(question_linked === null ||
@@ -611,7 +612,7 @@ class Question extends React.Component {
                   if (this.state.table_answers.length > 0) {
                     Keyboard.dismiss();
                     onAdd(question_id, this.state.table_answers);
-                    this.setState({multipleAnswer: '', table_answers: []});
+                    this.setState({ multipleAnswer: '', table_answers: [] });
                   }
                 }}>
                 Add
@@ -649,51 +650,51 @@ class Question extends React.Component {
             {(question_linked === null ||
               (question_linked && answer_linked === '1') ||
               (section_linked && section_linked === answer_linked)) && (
-              <>
-                {Platform.OS === 'ios' && answer === '0' && (
-                  <Icon
-                    name="checkbox-blank-outline"
-                    type="MaterialCommunityIcons"
-                    style={styles.iconCheckBox}
-                    onPress={() => {
-                      if (options && options.length === 0) {
-                        let value = answer === '1' ? '0' : '1';
-                        onChange(question_id, value);
+                <>
+                  {Platform.OS === 'ios' && answer === '0' && (
+                    <Icon
+                      name="checkbox-blank-outline"
+                      type="MaterialCommunityIcons"
+                      style={styles.iconCheckBox}
+                      onPress={() => {
+                        if (options && options.length === 0) {
+                          let value = answer === '1' ? '0' : '1';
+                          onChange(question_id, value);
+                        }
+                      }}
+                    />
+                  )}
+                  {Platform.OS === 'ios' && answer === '1' && (
+                    <Icon
+                      name="checkbox-marked"
+                      type="MaterialCommunityIcons"
+                      style={styles.iconCheckBox}
+                      onPress={() => {
+                        if (options && options.length === 0) {
+                          let value = answer === '1' ? '0' : '1';
+                          onChange(question_id, value);
+                        }
+                      }}
+                    />
+                  )}
+                  {Platform.OS === 'android' && (
+                    <Checkbox
+                      status={
+                        answer === '1' ||
+                          (options && options.length > 0 && answer)
+                          ? 'checked'
+                          : 'unchecked'
                       }
-                    }}
-                  />
-                )}
-                {Platform.OS === 'ios' && answer === '1' && (
-                  <Icon
-                    name="checkbox-marked"
-                    type="MaterialCommunityIcons"
-                    style={styles.iconCheckBox}
-                    onPress={() => {
-                      if (options && options.length === 0) {
-                        let value = answer === '1' ? '0' : '1';
-                        onChange(question_id, value);
-                      }
-                    }}
-                  />
-                )}
-                {Platform.OS === 'android' && (
-                  <Checkbox
-                    status={
-                      answer === '1' ||
-                      (options && options.length > 0 && answer)
-                        ? 'checked'
-                        : 'unchecked'
-                    }
-                    onPress={() => {
-                      if (options && options.length === 0) {
-                        let value = answer === '1' ? '0' : '1';
-                        onChange(question_id, value);
-                      }
-                    }}
-                  />
-                )}
-              </>
-            )}
+                      onPress={() => {
+                        if (options && options.length === 0) {
+                          let value = answer === '1' ? '0' : '1';
+                          onChange(question_id, value);
+                        }
+                      }}
+                    />
+                  )}
+                </>
+              )}
           </View>
         );
 
@@ -712,75 +713,75 @@ class Question extends React.Component {
             answer_linked === 'Serious') ||
           (question_linked && answer_linked === 'Female') ||
           (section_linked && section_linked === answer_linked)) && (
-          <View style={options.length <= 3 ? styles.inline : styles.newline}>
-            {options &&
-              options.map((option, index) => {
-                return (
-                  <View style={styles.viewRadioBox} key={index}>
-                    {Platform.OS === 'ios' && (
-                      <>
-                        <Text style={styles.textRadioBox}>{option.name}</Text>
-                        {answer !== option.value && (
-                          <Icon
-                            name="radiobox-blank"
-                            type="MaterialCommunityIcons"
-                            style={styles.iconCheckBox}
-                            onPress={() => {
-                              onChange(question_id, option.value);
-                            }}
-                          />
-                        )}
+            <View style={options.length <= 3 ? styles.inline : styles.newline}>
+              {options &&
+                options.map((option, index) => {
+                  return (
+                    <View style={styles.viewRadioBox} key={index}>
+                      {Platform.OS === 'ios' && (
+                        <>
+                          <Text style={styles.textRadioBox}>{option.name}</Text>
+                          {answer !== option.value && (
+                            <Icon
+                              name="radiobox-blank"
+                              type="MaterialCommunityIcons"
+                              style={styles.iconCheckBox}
+                              onPress={() => {
+                                onChange(question_id, option.value);
+                              }}
+                            />
+                          )}
 
-                        {answer === option.value && (
-                          <Icon
-                            name="radiobox-marked"
-                            type="MaterialCommunityIcons"
-                            style={styles.iconCheckBox}
+                          {answer === option.value && (
+                            <Icon
+                              name="radiobox-marked"
+                              type="MaterialCommunityIcons"
+                              style={styles.iconCheckBox}
+                              onPress={() => {
+                                onChange(question_id, option.value);
+                              }}
+                            />
+                          )}
+                        </>
+                      )}
+                      {Platform.OS === 'android' && (
+                        <>
+                          <RadioButton
+                            status={
+                              answer === option.value ? 'checked' : 'unchecked'
+                            }
                             onPress={() => {
                               onChange(question_id, option.value);
                             }}
                           />
-                        )}
-                      </>
-                    )}
-                    {Platform.OS === 'android' && (
-                      <>
-                        <RadioButton
-                          status={
-                            answer === option.value ? 'checked' : 'unchecked'
-                          }
-                          onPress={() => {
-                            onChange(question_id, option.value);
-                          }}
+                          <Text style={styles.textRadioBox}>{option.name}</Text>
+                        </>
+                      )}
+
+                      {option.hasOwnProperty('info') && (
+                        <Icon
+                          type={'Entypo'}
+                          name={'info-with-circle'}
+                          color={black}
+                          style={[
+                            styles.iconClose,
+                            { marginLeft: moderateScale(15) },
+                          ]}
+                          onPress={() => Alert.alert(option.name, option.info)}
                         />
-                        <Text style={styles.textRadioBox}>{option.name}</Text>
-                      </>
-                    )}
-
-                    {option.hasOwnProperty('info') && (
-                      <Icon
-                        type={'Entypo'}
-                        name={'info-with-circle'}
-                        color={black}
-                        style={[
-                          styles.iconClose,
-                          {marginLeft: moderateScale(15)},
-                        ]}
-                        onPress={() => Alert.alert(option.name, option.info)}
-                      />
-                    )}
-                  </View>
-                );
-              })}
-            <Text
-              style={styles.textClear}
-              onPress={() => {
-                onDelete(question_id);
-              }}>
-              Clear
-            </Text>
-          </View>
-        );
+                      )}
+                    </View>
+                  );
+                })}
+              <Text
+                style={styles.textClear}
+                onPress={() => {
+                  onDelete(question_id);
+                }}>
+                Clear
+              </Text>
+            </View>
+          );
 
         break;
       case 'time':
@@ -794,54 +795,54 @@ class Question extends React.Component {
 
         view = (section_linked === null ||
           (section_linked && section_linked === answer_linked)) && (
-          <View style={styles.viewDate}>
-            <Text style={styles.textDate} onPress={() => this.showCalender()}>
-              {this.displayDate(textDate, answer_type)}
-              <Text style={styles.textClickDate}>
-                {' '}
-                (Click to update)
-                {'  '}
+            <View style={styles.viewDate}>
+              <Text style={styles.textDate} onPress={() => this.showCalender()}>
+                {this.displayDate(textDate, answer_type)}
+                <Text style={styles.textClickDate}>
+                  {' '}
+                  (Click to update)
+                  {'  '}
+                </Text>
+                <Text
+                  style={styles.textClear}
+                  onPress={() => {
+                    onDelete(question_id);
+                  }}>
+                  Clear
+                </Text>
               </Text>
-              <Text
-                style={styles.textClear}
-                onPress={() => {
-                  onDelete(question_id);
-                }}>
-                Clear
-              </Text>
-            </Text>
-            {this.state.showCalender && (
-              <DateTimePicker
-                value={datetime}
-                mode={answer_type}
-                minimumDate={this.dateMin(question_id, answer_linked, options)}
-                maximumDate={
-                  question_id === 'vaccination_date' && answer_linked
-                    ? new Date(answer_linked)
-                    : options[0] === 'max'
-                    ? new Date()
-                    : new Date(moment().add(50, 'year').toDate())
-                }
-                is24Hour={false}
-                display={Platform.OS === 'ios' ? 'compact' : 'spinner'}
-                themeVariant="light"
-                style={styles.datepickerView}
-                onChange={(event, value) => {
-                  this.setState(
-                    {
-                      showCalender: Platform.OS === 'android' ? false : true,
-                    },
-                    () =>
-                      onChange(
-                        question_id,
-                        this.convertDate(value, answer_type),
-                      ),
-                  );
-                }}
-              />
-            )}
-          </View>
-        );
+              {this.state.showCalender && (
+                <DateTimePicker
+                  value={datetime}
+                  mode={answer_type}
+                  minimumDate={this.dateMin(question_id, answer_linked, options)}
+                  maximumDate={
+                    question_id === 'vaccination_date' && answer_linked
+                      ? new Date(answer_linked)
+                      : options[0] === 'max'
+                        ? new Date()
+                        : new Date(moment().add(50, 'year').toDate())
+                  }
+                  is24Hour={false}
+                  display={Platform.OS === 'ios' ? 'compact' : 'spinner'}
+                  themeVariant="light"
+                  style={styles.datepickerView}
+                  onChange={(event, value) => {
+                    this.setState(
+                      {
+                        showCalender: Platform.OS === 'android' ? false : true,
+                      },
+                      () =>
+                        onChange(
+                          question_id,
+                          this.convertDate(value, answer_type),
+                        ),
+                    );
+                  }}
+                />
+              )}
+            </View>
+          );
         break;
       case 'table':
         view = (
@@ -938,7 +939,7 @@ class Question extends React.Component {
               style={styles.buttonAdd}
               labelStyle={styles.labelButton}
               onPress={() => {
-                this.setState({table_answers: [], multipleAnswer: null});
+                this.setState({ table_answers: [], multipleAnswer: null });
                 this.setModalVisible();
               }}>
               Add
@@ -957,7 +958,7 @@ class Question extends React.Component {
                 <DataTable.Pagination
                   page={0}
                   numberOfPages={3}
-                  onPageChange={(page) => {}}
+                  onPageChange={(page) => { }}
                   label={answer ? 'Total : ' + answer.length : 'Total : ' + 0}
                   numberOfItemsPerPage={1}
                   showFastPagination
@@ -985,17 +986,17 @@ class Question extends React.Component {
                 (question_linked && answer_linked === '1') ||
                 answer_linked === 'Yes' ||
                 (section_linked && section_linked === answer_linked)) && (
-                <DropDown
-                  label={question + this.checkRequired(required)}
-                  mode={'outlined'}
-                  visible={this.state.dropdownStatus}
-                  showDropDown={() => this.openCloseMenu()}
-                  onDismiss={() => this.openCloseMenu()}
-                  value={answer ? answer : ''}
-                  setValue={(value) => onChange(question_id, value)}
-                  list={options}
-                />
-              )}
+                  <DropDown
+                    label={question + this.checkRequired(required)}
+                    mode={'outlined'}
+                    visible={this.state.dropdownStatus}
+                    showDropDown={() => this.openCloseMenu()}
+                    onDismiss={() => this.openCloseMenu()}
+                    value={answer ? answer : ''}
+                    setValue={(value) => onChange(question_id, value)}
+                    list={options}
+                  />
+                )}
             </View>
           );
         } else if (options) {
@@ -1007,11 +1008,11 @@ class Question extends React.Component {
                 onChange(question_id, option.value);
               }}
               style={styles.dropdownButton}
-              initValueTextStyle={{color: accent}}
+              initValueTextStyle={{ color: accent }}
               selectStyle={styles.dropdownContainer}
               optionContainerStyle={styles.optContainer}
               searchStyle={styles.searchStyle}
-              cancelContainerStyle={{backgroundColor: accent}}
+              cancelContainerStyle={{ backgroundColor: accent }}
             />
           );
         }
@@ -1047,7 +1048,7 @@ class Question extends React.Component {
                 placeholder={question}
                 style={styles.textInputImage}
                 returnKeyType="done"
-                onChangeText={(text) => this.setState({multipleAnswer: text})}
+                onChangeText={(text) => this.setState({ multipleAnswer: text })}
               />
               <Button
                 mode="contained"
@@ -1077,7 +1078,7 @@ class Question extends React.Component {
                     <View key={index} style={styles.inline}>
                       <Image
                         style={styles.imageMultiple}
-                        source={{uri: single_ans[0].answer}}
+                        source={{ uri: single_ans[0].answer }}
                       />
                       <Text style={styles.textInputImage}>
                         {single_ans[2].answer}
