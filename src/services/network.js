@@ -1,8 +1,8 @@
 import axios from 'axios';
 import NetInfo from '@react-native-community/netinfo';
 
-export const BASE_URL ='http://45.79.161.190';
-// export const BASE_URL='https://pv.pharmacyboardkenya.org'
+// export const BASE_URL ='http://45.79.161.190';
+export const BASE_URL='https://pv.pharmacyboardkenya.org'
 export const API_URL = `${BASE_URL}/api/`;
 const config = {
   Accept: 'application/json',

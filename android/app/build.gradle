@@ -79,7 +79,7 @@ android {
         applicationId "com.ppb_app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 47
+        versionCode 48
         versionName "1.0"
         multiDexEnabled true
         resConfigs "en", "US"
